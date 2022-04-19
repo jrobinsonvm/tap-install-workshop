@@ -60,6 +60,13 @@ RUN chmod 775 -R $HOME/.krew
 RUN apt update
 RUN apt install ruby-full -y
 
+# Install CF CLI 
+RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+RUN apt update
+RUN apt-get install cf7-cli
+
+
 # Install GCP CLI
 RUN curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-372.0.0-linux-x86_64.tar.gz > /tmp/google-cloud-sdk.tar.gz
 RUN mkdir -p /usr/local/gcloud \
