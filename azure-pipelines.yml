@@ -28,6 +28,7 @@ stages:
           curl -L -o /usr/local/bin/pivnet https://github.com/pivotal-cf/pivnet-cli/releases/download/v3.0.1/pivnet-linux-amd64-3.0.1  && \
               chmod 755 /usr/local/bin/pivnet
               pivnet login --api-token=$(apitoken)
+              pivnet download-product-files --product-slug='tanzu-application-platform' --release-version='1.1.0' --product-file-id=1190781
     - task: Docker@2
       inputs:
         containerRegistry: 'Tanzu Registry'
