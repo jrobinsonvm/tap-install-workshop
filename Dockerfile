@@ -8,7 +8,7 @@ COPY --from=java-tools --chown=1001:0 /opt/gradle /opt/gradle
 COPY --from=java-tools --chown=1001:0 /opt/maven /opt/maven
 COPY --from=java-tools --chown=1001:0 /home/eduk8s/. /home/eduk8s/
 COPY --from=java-tools --chown=1001:0 /opt/eduk8s/. /opt/eduk8s/
-COPY ./start.sh .
+COPY **/start.sh .
 RUN chmod +x start.sh
 
 
