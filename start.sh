@@ -19,7 +19,7 @@ if [ -n "$AZP_WORK" ]; then
 fi
 #rm -rf /home/eduk8s/agent
 #mkdir /home/eduk8s/agent
-cd /home/eduk8s/agent
+cd /home/eduk8s
 export AGENT_ALLOW_RUNASROOT="1"
 cleanup() {
   if [ -e config.sh ]; then
