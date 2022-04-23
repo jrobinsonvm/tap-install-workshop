@@ -40,6 +40,6 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'Harbor Registry'
-        repository: 'tap/learningcenter'
+        repository: 'apps/azuredevops-agent'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
