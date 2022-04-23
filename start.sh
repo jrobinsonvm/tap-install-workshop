@@ -10,16 +10,16 @@ if [ -z "$AZP_TOKEN_FILE" ]; then
     echo 1>&2 "error: missing AZP_TOKEN environment variable"
     exit 1
   fi
-AZP_TOKEN_FILE=/azp/.token
+AZP_TOKEN_FILE=/home/eduk8s/.token
   echo -n $AZP_TOKEN > "$AZP_TOKEN_FILE"
 fi
 unset AZP_TOKEN
 if [ -n "$AZP_WORK" ]; then
   mkdir -p "$AZP_WORK"
 fi
-#rm -rf /azp/agent
-#mkdir /azp/agent
-cd /azp/agent
+#rm -rf /home/eduk8s/agent
+#mkdir /home/eduk8s/agent
+cd /home/eduk8s/agent
 export AGENT_ALLOW_RUNASROOT="1"
 cleanup() {
   if [ -e config.sh ]; then
