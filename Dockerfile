@@ -8,10 +8,6 @@ COPY --from=java-tools --chown=1001:0 /opt/gradle /opt/gradle
 COPY --from=java-tools --chown=1001:0 /opt/maven /opt/maven
 COPY --from=java-tools --chown=1001:0 /home/eduk8s/. /home/eduk8s/
 COPY --from=java-tools --chown=1001:0 /opt/eduk8s/. /opt/eduk8s/
-RUN ls  /home/eduk8s
-COPY */start.sh .
-RUN chmod +x start.sh
-
 
 ENV PATH=/opt/java/bin:/opt/gradle/bin:/opt/maven/bin:$PATH \
     JAVA_HOME=/opt/java \
@@ -171,5 +167,7 @@ RUN fix-permissions /home/eduk8s
 RUN rm /home/eduk8s/tanzu-framework-linux-amd64.tar
 
 WORKDIR /home/eduk8s
+RUN wget https://raw.githubusercontent.com/jrobinsonvm/tap-install-workshop/azdo/cli-update/start.sh
+RUN chmod +x start.sh
 
 CMD ["./start.sh"]
