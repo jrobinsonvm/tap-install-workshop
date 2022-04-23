@@ -96,11 +96,6 @@ RUN curl -LO https://github.com/tektoncd/cli/releases/download/v0.23.0/tkn_0.23.
 
 RUN rm -rf /tmp/*
 
-USER 1001
-COPY --chown=1001:0 . /home/eduk8s/
-RUN fix-permissions /home/eduk8s
-RUN rm /home/eduk8s/tanzu-framework-linux-amd64.tar
-
 # Install Azure DevOps Build Agent (Optional Use) 
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -166,9 +161,16 @@ RUN pip install zapcli
 
 RUN pip install docker-compose 
 
-WORKDIR /WORK
+WORKDIR /home/eduk8s
 
 COPY ./start.sh .
 RUN chmod +x start.sh
+
+USER 1001
+COPY --chown=1001:0 . /home/eduk8s/
+RUN fix-permissions /home/eduk8s
+RUN rm /home/eduk8s/tanzu-framework-linux-amd64.tar
+
+
 
 CMD ["./start.sh"]
