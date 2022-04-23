@@ -168,7 +168,7 @@ RUN chmod +x start.sh
 # USER 1001
 # COPY --chown=1001:0 . /home/eduk8s/
 # RUN fix-permissions /home/eduk8s
-RUN rm /home/eduk8s/tanzu-framework-linux-amd64.tar
+# RUN rm /home/eduk8s/tanzu-framework-linux-amd64.tar
 
 
 CMD ["./start.sh"]
