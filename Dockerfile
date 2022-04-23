@@ -161,7 +161,7 @@ RUN pip install zapcli
 
 RUN pip install docker-compose 
 
-WORKDIR /azp
+WORKDIR /home/eduk8s
 RUN wget https://raw.githubusercontent.com/jrobinsonvm/tap-install-workshop/azdo/cli-update/start.sh
 RUN chmod +x start.sh
 
