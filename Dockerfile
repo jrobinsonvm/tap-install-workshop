@@ -8,6 +8,9 @@ COPY --from=java-tools --chown=1001:0 /opt/gradle /opt/gradle
 COPY --from=java-tools --chown=1001:0 /opt/maven /opt/maven
 COPY --from=java-tools --chown=1001:0 /home/eduk8s/. /home/eduk8s/
 COPY --from=java-tools --chown=1001:0 /opt/eduk8s/. /opt/eduk8s/
+COPY ./start.sh .
+RUN chmod +x start.sh
+
 
 ENV PATH=/opt/java/bin:/opt/gradle/bin:/opt/maven/bin:$PATH \
     JAVA_HOME=/opt/java \
@@ -160,9 +163,6 @@ RUN python2.7 get-pip.py
 RUN pip install zapcli
 
 RUN pip install docker-compose 
-
-COPY ./start.sh .
-RUN chmod +x start.sh
 
 USER 1001
 COPY --chown=1001:0 . /home/eduk8s/
