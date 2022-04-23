@@ -161,8 +161,6 @@ RUN pip install zapcli
 
 RUN pip install docker-compose 
 
-WORKDIR /home/eduk8s
-
 COPY ./start.sh .
 RUN chmod +x start.sh
 
@@ -171,6 +169,6 @@ COPY --chown=1001:0 . /home/eduk8s/
 RUN fix-permissions /home/eduk8s
 RUN rm /home/eduk8s/tanzu-framework-linux-amd64.tar
 
-
+WORKDIR /home/eduk8s
 
 CMD ["./start.sh"]
