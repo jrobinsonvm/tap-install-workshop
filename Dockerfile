@@ -165,6 +165,12 @@ WORKDIR /home/eduk8s
 RUN wget https://raw.githubusercontent.com/jrobinsonvm/tap-install-workshop/azdo/cli-update/start.sh
 RUN chmod +x start.sh
 
+
+# Install TMC CLI 
+RUN wget https://tmc-cli.s3-us-west-2.amazonaws.com/tmc/0.4.3-7e23d4d8/linux/x64/tmc
+RUN chmod +x tmc
+RUN mv tmc /usr/local/bin/tmc
+
 # USER 1001
 # COPY --chown=1001:0 . /home/eduk8s/
 # RUN fix-permissions /home/eduk8s
