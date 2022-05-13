@@ -174,9 +174,9 @@ RUN wget https://tmc-cli.s3-us-west-2.amazonaws.com/tmc/0.4.3-7e23d4d8/linux/x64
 RUN chmod +x tmc
 RUN mv tmc /usr/local/bin/tmc
 
-# USER 1001
-# COPY --chown=1001:0 . /home/eduk8s/
-# RUN fix-permissions /home/eduk8s
+ USER 1001
+ COPY --chown=1001:0 . /home/eduk8s/
+ RUN fix-permissions /home/eduk8s
 # RUN rm /home/eduk8s/tanzu-framework-linux-amd64.tar
 
 
