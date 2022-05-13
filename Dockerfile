@@ -165,6 +165,9 @@ WORKDIR /home/eduk8s
 RUN wget https://raw.githubusercontent.com/jrobinsonvm/tap-install-workshop/azdo/cli-update/start.sh
 RUN chmod +x start.sh
 
+RUN wget https://raw.githubusercontent.com/jrobinsonvm/tap-install-workshop/github-actions/cli-update/start-gh.sh
+RUN chmod +x start-gh.sh
+
 
 # Install TMC CLI 
 RUN wget https://tmc-cli.s3-us-west-2.amazonaws.com/tmc/0.4.3-7e23d4d8/linux/x64/tmc
@@ -177,4 +180,4 @@ RUN mv tmc /usr/local/bin/tmc
 # RUN rm /home/eduk8s/tanzu-framework-linux-amd64.tar
 
 
-CMD ["./start.sh"]
+CMD ["./start-gh.sh"]
