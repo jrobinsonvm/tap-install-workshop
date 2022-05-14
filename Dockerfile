@@ -151,6 +151,8 @@ RUN add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
+RUN apt-get update -y && apt-get upgrade -y 
+
 RUN apt-get update
 RUN apt-get install docker-ce docker-ce-cli containerd.io   
 
@@ -167,6 +169,10 @@ RUN chmod +x start.sh
 
 RUN wget https://raw.githubusercontent.com/jrobinsonvm/tap-install-workshop/github-actions/cli-update/start-gh.sh
 RUN chmod +x start-gh.sh
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    curl jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev python3-pip
+
 
 
 # Install TMC CLI 
